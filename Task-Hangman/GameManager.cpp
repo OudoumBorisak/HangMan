@@ -1,29 +1,44 @@
 #include "GameManager.h"
 
-GameManager::GameManager() : MAX_TRIES(5)
+GameManager::GameManager() : MAX_TRIES(5), attemptsUsed(0)
 {
-    words[0] = "india";
-    words[1] = "pakistan";
-    words[2] = "nepal";
-    words[3] = "malaysia";
-    words[4] = "philippines";
-    words[5] = "australia";
-    words[6] = "iran";
-    words[7] = "ethiopia";
-    words[8] = "oman";
-    words[9] = "indonesia";
+    words = loadWords();
     player_name = "default";
 
-    // Make sure the high-score file exists, if not then create one
-    ifstream fin("./data/scores.txt");
-    if (!fin)
+    // Ensure the high-score file exists or create it
+    ifstream scoreFile("data/scores.txt");
+    if (!scoreFile)
     {
-        // File doesn't exist.
-        system("mkdir data");
-        ofstream fout("./data/scores.txt");
+        if (system("mkdir data") != 0)
+        {
+            cerr << "Error creating directory.\n";
+            exit(1);
+        }
+        ofstream fout("data/scores.txt");
         fout.close();
     }
+    scoreFile.close();
+
+    startTime = time(nullptr);
+}
+
+vector<string> GameManager::loadWords()
+{
+    vector<string> words;
+    ifstream fin("encrypted_word_list.txt");
+    if (!fin)
+    {
+        cerr << "Error opening encrypted word list file.\n";
+        exit(1);
+    }
+
+    string word;
+    while (getline(fin, word))
+    {
+        words.push_back(word);
+    }
     fin.close();
+    return words;
 }
 
 void GameManager::showTitle()
@@ -37,7 +52,6 @@ void GameManager::showTitle()
 
 void GameManager::showRules()
 {
-    // welcome the user
     cout << endl;
     cout << "\t\t\t HOW TO PLAY" << endl;
     cout << "\t\t\t-------------" << endl;
@@ -56,12 +70,14 @@ void GameManager::showRules()
 void GameManager::startGame()
 {
     int num_of_wrong_guesses = 0, cur_score = 100;  // Initialize the current score to 100.
-    //choose and copy a word from array of words randomly
-    srand(time(NULL));
-    int n = rand() % 10;
+    // Choose and copy a word from array of words randomly
+    srand(static_cast<unsigned>(time(nullptr)));
+    int n = rand() % words.size();
     word = words[n];
 
-    string unknown = string(word.length(), '*');
+    string unknown(word.length(), '*');
+    playerLetters.clear();
+    startTime = time(nullptr);
 
     // Loop until the guesses are used up
     system("cls");
@@ -72,23 +88,26 @@ void GameManager::startGame()
         cout << "Guess a letter: ";
         char letter;
         cin >> letter;
+        playerLetters.push_back(letter);
+        cout << endl;
+
         // Fill secret word with letter if the guess is correct,
         // otherwise increment the number of wrong guesses.
-        cout << endl;
         if (letterFill(letter, unknown) == 0)
         {
             cout << "Whoops! That letter isn't in there!" << endl;
             num_of_wrong_guesses++;
-            cur_score -= 10;    // If player gives a wrong guess deduct 10 pts.
+            cur_score -= 10;    // Deduct 10 points for a wrong guess
         }
         else
         {
             cout << "You found a letter! Isn't that exciting!" << endl;
         }
-        // Tell user how many guesses has left.
-        cout << "You have " << MAX_TRIES - num_of_wrong_guesses;
-        cout << " guesses left." << endl;
-        // Check if user guessed the word.
+
+        // Tell user how many guesses are left
+        cout << "You have " << MAX_TRIES - num_of_wrong_guesses << " guesses left." << endl;
+
+        // Check if user guessed the word
         if (word == unknown)
         {
             cout << word << endl;
@@ -96,26 +115,28 @@ void GameManager::startGame()
             break;
         }
     }
+
+    endTime = time(nullptr);
     if (num_of_wrong_guesses == MAX_TRIES)
     {
         cout << "\nSorry, you lose...you've been hanged." << endl;
         cout << "The word was : " << word << endl;
-        cur_score -= 20;    // If player is unable to guess the country then deduct 20 more.
+        cur_score -= 20;    // Deduct 20 more points if the player loses
     }
     if (cur_score < 0)
         cur_score = 0;
 
     cout << "You scored: " << cur_score << endl;
     cout << endl;
-    updateHighScores(cur_score);    // Update the scores in the file.
+    updateHighScores(cur_score);    // Update the scores in the file
+    displayStatistics();            // Display game statistics
 }
 
 int GameManager::letterFill(char guess, string& guessword)
 {
     int i;
     int matches = 0;
-    int len = word.length();
-    for (i = 0; i < len; i++)
+    for (i = 0; i < word.length(); i++)
     {
         // Did we already match this letter in a previous guess?
         if (guess == guessword[i])
@@ -138,23 +159,19 @@ void GameManager::getPlayerName()
 
 void GameManager::updateHighScores(int current_score)
 {
-    // Stores the top 10 high scores
-    ifstream fin("./data/scores.txt");
+    ifstream fin("data/scores.txt");
 
     priority_queue<pair<int, string>> pq;
     string name;
     int score;
-    fin >> name;
-    while (!fin.eof())
+    while (fin >> name >> score)
     {
-        fin >> score;
         pq.push({ score, name });
-        fin >> name;
     }
     pq.push({ current_score, player_name });
     fin.close();
 
-    ofstream fout("./data/scores.txt");
+    ofstream fout("data/scores.txt");
     for (int i = 0; !pq.empty() && i < 5; i++)
     {
         fout << pq.top().second << " " << pq.top().first << endl;
@@ -171,13 +188,10 @@ void GameManager::showHighScores()
 
     string n;
     int score;
-    fin >> n;
     int i = 1;
-    while (!fin.eof())
+    while (fin >> n >> score)
     {
-        fin >> score;
         cout << i << ". " << n << "   " << score << endl;
-        fin >> n;
         i++;
     }
     if (i == 1)
@@ -192,4 +206,19 @@ void GameManager::showHighScores()
     cout << "Press any key to continue." << endl;
     cin.ignore();
     cin.get();
+}
+
+void GameManager::displayStatistics()
+{
+    double timeSpent = difftime(endTime, startTime);
+
+    cout << "\nGame Statistics:\n";
+    cout << "Time spent: " << timeSpent << " seconds\n";
+    cout << "Number of attempts: " << MAX_TRIES - attemptsUsed << endl;
+    cout << "Word: " << word << endl;
+    cout << "Player's letters: ";
+    for (char letter : playerLetters) {
+        cout << letter << ' ';
+    }
+    cout << '\n';
 }

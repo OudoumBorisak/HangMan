@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Maxx\\source\\repos\\Task-Hangman\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9C462A63-DB98-40EC-BB51-BD749976C997}|Task-Hangman\\Task-Hangman.vcxproj|C:\\Users\\Maxx\\source\\repos\\Task-Hangman\\Task-Hangman\\Task-Hangman.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{9C462A63-DB98-40EC-BB51-BD749976C997}|Task-Hangman\\Task-Hangman.vcxproj|solutionrelative:Task-Hangman\\Task-Hangman.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9C462A63-DB98-40EC-BB51-BD749976C997}|Task-Hangman\\Task-Hangman.vcxproj|C:\\Users\\Maxx\\source\\repos\\Task-Hangman\\Task-Hangman\\GameManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{9C462A63-DB98-40EC-BB51-BD749976C997}|Task-Hangman\\Task-Hangman.vcxproj|solutionrelative:Task-Hangman\\GameManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{9C462A63-DB98-40EC-BB51-BD749976C997}|Task-Hangman\\Task-Hangman.vcxproj|C:\\Users\\Maxx\\source\\repos\\Task-Hangman\\Task-Hangman\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9C462A63-DB98-40EC-BB51-BD749976C997}|Task-Hangman\\Task-Hangman.vcxproj|solutionrelative:Task-Hangman\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9C462A63-DB98-40EC-BB51-BD749976C997}|Task-Hangman\\Task-Hangman.vcxproj|C:\\Users\\Maxx\\source\\repos\\Task-Hangman\\Task-Hangman\\GameManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{9C462A63-DB98-40EC-BB51-BD749976C997}|Task-Hangman\\Task-Hangman.vcxproj|solutionrelative:Task-Hangman\\GameManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C462A63-DB98-40EC-BB51-BD749976C997}|Task-Hangman\\Task-Hangman.vcxproj|C:\\Users\\Maxx\\source\\repos\\Task-Hangman\\Task-Hangman\\encrypted_word_list.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{9C462A63-DB98-40EC-BB51-BD749976C997}|Task-Hangman\\Task-Hangman.vcxproj|solutionrelative:Task-Hangman\\encrypted_word_list.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C462A63-DB98-40EC-BB51-BD749976C997}|Task-Hangman\\Task-Hangman.vcxproj|C:\\Users\\Maxx\\source\\repos\\Task-Hangman\\Task-Hangman\\GameManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9C462A63-DB98-40EC-BB51-BD749976C997}|Task-Hangman\\Task-Hangman.vcxproj|solutionrelative:Task-Hangman\\GameManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -31,36 +35,51 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "encrypted_word_list.txt",
+              "DocumentMoniker": "C:\\Users\\Maxx\\source\\repos\\Task-Hangman\\Task-Hangman\\encrypted_word_list.txt",
+              "RelativeDocumentMoniker": "Task-Hangman\\encrypted_word_list.txt",
+              "ToolTip": "C:\\Users\\Maxx\\source\\repos\\Task-Hangman\\Task-Hangman\\encrypted_word_list.txt",
+              "RelativeToolTip": "Task-Hangman\\encrypted_word_list.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-09-19T11:08:20.136Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "GameManager.cpp",
               "DocumentMoniker": "C:\\Users\\Maxx\\source\\repos\\Task-Hangman\\Task-Hangman\\GameManager.cpp",
               "RelativeDocumentMoniker": "Task-Hangman\\GameManager.cpp",
               "ToolTip": "C:\\Users\\Maxx\\source\\repos\\Task-Hangman\\Task-Hangman\\GameManager.cpp",
               "RelativeToolTip": "Task-Hangman\\GameManager.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-18T11:28:05.474Z"
+              "WhenOpened": "2024-09-18T11:28:05.474Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "GameManager.h",
               "DocumentMoniker": "C:\\Users\\Maxx\\source\\repos\\Task-Hangman\\Task-Hangman\\GameManager.h",
               "RelativeDocumentMoniker": "Task-Hangman\\GameManager.h",
               "ToolTip": "C:\\Users\\Maxx\\source\\repos\\Task-Hangman\\Task-Hangman\\GameManager.h",
               "RelativeToolTip": "Task-Hangman\\GameManager.h",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAABgAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-18T11:27:36.301Z"
+              "WhenOpened": "2024-09-18T11:27:36.301Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Task-Hangman.cpp",
-              "DocumentMoniker": "C:\\Users\\Maxx\\source\\repos\\Task-Hangman\\Task-Hangman\\Task-Hangman.cpp",
-              "RelativeDocumentMoniker": "Task-Hangman\\Task-Hangman.cpp",
-              "ToolTip": "C:\\Users\\Maxx\\source\\repos\\Task-Hangman\\Task-Hangman\\Task-Hangman.cpp",
-              "RelativeToolTip": "Task-Hangman\\Task-Hangman.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Title": "Main.cpp",
+              "DocumentMoniker": "C:\\Users\\Maxx\\source\\repos\\Task-Hangman\\Task-Hangman\\Main.cpp",
+              "RelativeDocumentMoniker": "Task-Hangman\\Main.cpp",
+              "ToolTip": "C:\\Users\\Maxx\\source\\repos\\Task-Hangman\\Task-Hangman\\Main.cpp",
+              "RelativeToolTip": "Task-Hangman\\Main.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-14T12:17:14.699Z",
               "EditorCaption": ""
