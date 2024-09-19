@@ -1,0 +1,62 @@
+# Compiled object files
+*.o
+*.obj
+*.lo
+*.dll
+*.so
+*.dylib
+
+# Compiled static libraries
+*.lib
+*.a
+
+# Compiled dynamic libraries
+*.dll
+*.dylib
+*.so
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Debug files
+*.dSYM/
+*.stackdump
+*.core
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Visual Studio
+*.vcxproj
+*.vcxproj.user
+*.vcxproj.filters
+*.pdb
+*.idb
+*.ipch
+*.opensdf
+*.sdf
+*.VC.db
+*.VC.opendb
+
+# CLion
+.idea/
+*.iml
+cmake-build-*/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Dependency directories
+node_modules/
