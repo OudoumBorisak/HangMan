@@ -1,0 +1,6 @@
+﻿  GameManager.cpp
+C:\Users\Maxx\source\repos\Task-Hangman\Task-Hangman\GameManager.cpp(60,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Maxx\source\repos\Task-Hangman\Task-Hangman\GameManager.cpp(117,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Task-Hangman.cpp
+  Generating Code...
+  Task-Hangman.vcxproj -> C:\Users\Maxx\source\repos\Task-Hangman\x64\Debug\Task-Hangman.exe
